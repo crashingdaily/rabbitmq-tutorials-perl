@@ -39,4 +39,8 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
     perl receive_logs_direct.pl info
     perl emit_log_direct.pl info "The message"
 
+[Tutorial five: Topics](http://www.rabbitmq.com/tutorial-five-python.html):
+
+    perl receive_logs_topic.pl "*.rabbit"
+    perl emit_log_topic.pl red.rabbit Hello
 
