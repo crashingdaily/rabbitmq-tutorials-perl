@@ -33,3 +33,8 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
 
     perl receive_logs.pl
     perl emit_log.pl "info: This is the log message"
+
+[Tutorial four: Routing](http://www.rabbitmq.com/tutorial-four-python.html):
+
+    python receive_logs_direct.pl info
+    python emit_log_direct.pl info "The message"
