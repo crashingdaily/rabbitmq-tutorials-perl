@@ -21,13 +21,13 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
 
 [Tutorial one: "Hello World!"](http://www.rabbitmq.com/tutorial-one-python.html):
 
-    python send.pl
-    python receive.pl
+    perl send.pl
+    perl receive.pl
 
 [Tutorial two: Work Queues](http://www.rabbitmq.com/tutorial-two-python.html):
 
-    python new_task.pl "A very hard task which takes two seconds.."
-    python worker.pl
+    perl new_task.pl "A very hard task which takes two seconds.."
+    perl worker.pl
 
 [Tutorial three: Publish/Subscribe:](http://www.rabbitmq.com/tutorials/tutorial-three-python.html)
 
@@ -36,5 +36,7 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
 
 [Tutorial four: Routing](http://www.rabbitmq.com/tutorial-four-python.html):
 
-    python receive_logs_direct.pl info
-    python emit_log_direct.pl info "The message"
+    perl receive_logs_direct.pl info
+    perl emit_log_direct.pl info "The message"
+
+
