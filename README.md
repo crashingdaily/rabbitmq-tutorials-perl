@@ -6,7 +6,7 @@ Ports of the [RabbitMQ tutorials](https://github.com/rabbitmq/rabbitmq-tutorials
 
 ## Requirements
 
-To successfully use the examples you will need a running RabbitMQ server. The scripts as written expect the RabbitMQ server to be on localhost, port 5672, guest/guest username/password.
+To successfully use the examples you will need a running RabbitMQ server. The scripts as written expect the RabbitMQ server to be on localhost, port 5672, guest/guest username/password. The [mheiges/vagrant-rabbitmq](http://github.com/mheiges/vagrant-rabbitmq) Vagrant VM is one source of a suitable RabbitMQ for these tutorials.
 
 The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ-0.2.8/RabbitMQ.pm). I use  version 0.2.8 .
 
