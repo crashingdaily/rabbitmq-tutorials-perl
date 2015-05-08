@@ -28,15 +28,14 @@ my $queue_name = $mq->queue_declare($channel_id, '', { exclusive => 1 });
 
 $mq->queue_bind($channel_id, $queue_name, $exchange_name, $routing_key);
 
-print " [*] Waiting for logs. To exit press CTRL+C\n";
-
 $mq->consume($channel_id, $queue_name, {consumer_tag => "worker_$$", no_ack => 0, exclusive => 0,});
+
+print " [*] Waiting for logs. To exit press CTRL+C\n";
 
 while ( my $payload = $mq->recv() ) {
     last if not defined $payload ;
     my $message  = $payload->{body} ;
-    my $dtag  = $payload->{delivery_tag} ;
     print " [x] '$message'\n";
-    #$mq->ack($channel_id, $dtag,) ;
 }
 
+$mq->disconnect;

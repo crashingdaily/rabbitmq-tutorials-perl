@@ -25,9 +25,13 @@ $mq->queue_declare($channel_id, $queue_name, {auto_delete => 0});
 
 $mq->consume($channel_id, $queue_name, { no_ack => 0 });
 
+print " [*] Waiting for logs. To exit press CTRL+C\n";
+
 while ( my $payload = $mq->recv() ) {
     last if not defined $payload ;
     my $message  = $payload->{body} ;
     my $dtag  = $payload->{delivery_tag} ;
     print " [x] '$message'\n";
 }
+
+$mq->disconnect;

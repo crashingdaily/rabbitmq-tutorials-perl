@@ -29,4 +29,4 @@ $mq->publish($channel_id, $routing_key, $message, { exchange => $exchange });
 
 print " [x] $message\n";
 
-$mq->disconnect ;
+$mq->disconnect;

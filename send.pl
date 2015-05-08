@@ -29,3 +29,5 @@ my $message = 'Hello World!';
 $mq->publish($channel_id, $routing_key, $message);
 
 print "  [x] Sent '$message'";
+
+$mq->disconnect;
