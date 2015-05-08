@@ -3,7 +3,7 @@
 # Perl Net::RabbitMQ port of receive_logs.py from vendor tutorials.
 # https://github.com/rabbitmq/rabbitmq-tutorials/blob/master/python/receive_logs.py
 #
-# This script can receive messages from emit_log.pl and to emit_log.py .
+# This script can receive messages from emit_log.pl and from emit_log.py .
 
 use strict;
 use Net::RabbitMQ;
