@@ -7,7 +7,6 @@
 
 use strict;
 use Net::RabbitMQ;
-use Data::Dumper;
 
 my $host = 'localhost';
 my $channel_id = 1;
@@ -22,7 +21,7 @@ $mq->channel_open($channel_id);
 
 # Net::RabbitMQ defaults to auto_delete 1. Python's pika defaults to False. To
 # match the exchange created in receive_logs.py, we need to disable auto_delete.
-$mq->exchange_declare($channel_id, $exchange_name, {exchange => 'logs', exchange_type => 'fanout', auto_delete => 0});
+$mq->exchange_declare($channel_id, $exchange_name, {exchange => $exchange_name, exchange_type => 'fanout', auto_delete => 0});
 
 my $queue_name = $mq->queue_declare($channel_id, '', { exclusive => 1 });
 

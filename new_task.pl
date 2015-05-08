@@ -8,7 +8,6 @@
 
 use strict;
 use Net::RabbitMQ;
-use Data::Dumper;
 
 my $host = 'localhost';
 my $channel_id = 1;
