@@ -19,6 +19,11 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
 
 ## Code
 
+[Tutorial one: "Hello World!"](http://www.rabbitmq.com/tutorial-one-python.html):
+
+    python send.pl
+    python receive.pl
+
 
 [Tutorial three: Publish/Subscribe:](http://www.rabbitmq.com/tutorials/tutorial-three-python.html)
 
