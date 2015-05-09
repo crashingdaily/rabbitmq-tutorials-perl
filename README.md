@@ -1,7 +1,7 @@
 
 # RabbitMQ Tutorials - Perl
 
-Ports of the [RabbitMQ tutorials](https://github.com/rabbitmq/rabbitmq-tutorials) to Perl [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ-0.2.8/RabbitMQ.pm).
+Ports of the [Python RabbitMQ tutorials](https://github.com/rabbitmq/rabbitmq-tutorials) to Perl using [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ-0.2.8/RabbitMQ.pm).
 
 
 ## Requirements
@@ -44,3 +44,7 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
     perl receive_logs_topic.pl "*.rabbit"
     perl emit_log_topic.pl red.rabbit Hello
 
+[Tutorial six: RPC](http://www.rabbitmq.com/tutorial-six-python.html):
+
+    perl rpc_server.pl
+    perl rpc_client.pl
