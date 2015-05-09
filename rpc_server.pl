@@ -36,7 +36,7 @@ while ( my $payload = $mq->recv() ) {
     $mq->publish($channel_id, $reply_to, $response, {}, {correlation_id => $correlation_id});
     $mq->ack($channel_id, $dtag);
     print " [x] '$response'\n";
-    print " to queue $reply_to, correlation_id $correlation_id\n";
+    #print " to queue $reply_to, correlation_id $correlation_id\n";
 }
 
 $mq->disconnect;
