@@ -47,4 +47,6 @@ The Perl scripts use [Net::RabbitMQ](http://search.cpan.org/~jesus/Net--RabbitMQ
 [Tutorial six: RPC](http://www.rabbitmq.com/tutorial-six-python.html):
 
     perl rpc_server.pl
-    perl rpc_client.pl
+    perl rpc_client.pl 10
+
+The porting of Tutorial six differs a little from the Python original in that the Perl port accepts an optional value on the command line (default 30).
