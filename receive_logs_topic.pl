@@ -39,7 +39,6 @@ $mq->consume($channel_id, $queue_name, {consumer_tag => "worker_$$", no_ack => 0
 
 print " [*] Waiting for logs. To exit press CTRL+C\n";
 
-
 while ( my $payload = $mq->recv() ) {
     last if not defined $payload ;
     my $message  = $payload->{'body'};

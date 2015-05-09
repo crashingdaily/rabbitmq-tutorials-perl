@@ -11,6 +11,7 @@ use Net::RabbitMQ;
 my $host = 'localhost';
 my $channel_id = 1;
 my $exchange_name = 'direct_logs';
+my $exchange_type = 'direct';
 
 my $mq = Net::RabbitMQ->new() ;
 
@@ -20,7 +21,7 @@ $mq->channel_open($channel_id);
 
 # Net::RabbitMQ defaults to auto_delete 1. Python's pika defaults to False. To
 # match the exchange created in receive_logs.py, we need to disable auto_delete.
-$mq->exchange_declare($channel_id, $exchange_name, {exchange => $exchange_name, exchange_type => 'direct', auto_delete => 0});
+$mq->exchange_declare($channel_id, $exchange_name, {exchange => $exchange_name, exchange_type => $exchange_type, auto_delete => 0});
 
 my $queue_name = $mq->queue_declare($channel_id, '', { exclusive => 1 });
 
@@ -41,8 +42,8 @@ print " [*] Waiting for logs. To exit press CTRL+C\n";
 while ( my $payload = $mq->recv() ) {
     last if not defined $payload ;
     my $message  = $payload->{'body'};
-    my $severity = $payload->{'routing_key'};
-    print " [x] '$severity':'$message'\n";
+    my $routing_key = $payload->{'routing_key'};
+    print " [x] '$routing_key':'$message'\n";
 }
 
 $mq->disconnect;
