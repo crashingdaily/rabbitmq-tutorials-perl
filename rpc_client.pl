@@ -7,8 +7,8 @@
 
 use strict;
 use Net::RabbitMQ;
-use Data::Dumper;
 
+my $DEBUG = 1;
 my $max_input = 35;
 
 my $host = 'localhost';
@@ -39,7 +39,7 @@ sub call {
   my ($n) = @_;
   my $correlation_id = `uuidgen`;
   $mq->publish($channel_id, $routing_key, $n, {}, {reply_to => $queue_name, correlation_id => $correlation_id});
-  #print "publish $n to queue $queue_name, routing_key $routing_key, correlation_id $correlation_id\n";
+  $DEBUG && print "published $n to queue $queue_name, routing_key $routing_key, correlation_id $correlation_id\n";
   my $payload;
   my $response_correlation_id;
   $mq->consume($channel_id, $queue_name, {});
