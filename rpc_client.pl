@@ -42,9 +42,10 @@ sub call {
   #print "publish $n to queue $queue_name, routing_key $routing_key, correlation_id $correlation_id\n";
   my $payload;
   my $response_correlation_id;
-  do {
-    $payload = $mq->get($channel_id, $queue_name);
+  $mq->consume($channel_id, $queue_name, {});
+  while ( $payload = $mq->recv() ) {
     $response_correlation_id = $payload->{'props'}{'correlation_id'};
-  } while ($payload == undef || ($correlation_id ne $response_correlation_id));
+    last if ($correlation_id eq $response_correlation_id);
+  }
   return $payload->{'body'};
 }
