@@ -23,7 +23,7 @@ $mq->channel_open($channel_id);
 # match the queue created by receive.py, we need to disable auto_delete.
 $mq->queue_declare($channel_id, $queue_name, {auto_delete => 0});
 
-$mq->consume($channel_id, $queue_name, { no_ack => 0 });
+$mq->consume($channel_id, $queue_name, { no_ack => 1 });
 
 print " [*] Waiting for logs. To exit press CTRL+C\n";
 
